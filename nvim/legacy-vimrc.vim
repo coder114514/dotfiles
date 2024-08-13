@@ -12,6 +12,7 @@ filetype plugin indent on
 " set ignorecase
 " set smartcase
 " set incsearch
+" set nohlsearch
 
 set ruler
 set hidden
