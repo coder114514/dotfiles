@@ -28,6 +28,15 @@ export ZDOTDIR=$HOME/.config/zsh
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+export SUDO_EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+export VIDEO="vlc"
+export OPENER="xdg-open"
+export PAGER="less"
+
 typeset -U PATH path
 path=("$HOME/bin" "$path[@]")
 export PATH
