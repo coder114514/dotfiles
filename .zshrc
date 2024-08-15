@@ -6,15 +6,7 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%F{red}$? %(!.%F{red}%n%f.%F{blue}%n%f) %F{green}%*%f %F{white}%~%f %F{red}${vcs_info_msg_0_}%f%# '
 
-bindkey "^[[H"    beginning-of-line  # Home
-bindkey "^[[F"    end-of-line        # End
-bindkey "^[[3~"   delete-char        # Delete
-bindkey "^[[1;3C" forward-word       # Alt+Right
-bindkey "^[[1;3D" backward-word      # Alt+Left
-bindkey "^[[1;5C" forward-word       # Ctrl+Right
-bindkey "^[[1;5D" backward-word      # Ctrl+Left
-bindkey "^H"      backward-kill-word # Ctrl+Bksp
-bindkey "^[[3;5~" kill-word          # Ctrl+Bksp
+. /opt/zsh-keybind
 
 WORDCHARS="${WORDCHARS/\//\\/}"
 
