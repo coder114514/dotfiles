@@ -2,8 +2,11 @@ syntax on
 
 filetype plugin indent on
 
+colorscheme desert
+
+set guicursor=a:block-blinkon0
+
 set nu
-set rnu
 
 set tabstop=4
 set shiftwidth=4
@@ -14,7 +17,6 @@ set smartcase
 set incsearch
 
 set ruler
-set hidden
 set cursorline
 set belloff=all
 set autoread
@@ -24,12 +26,32 @@ set noswapfile
 set undodir=~/.vim/undodir
 set undofile
 
-set scrolloff=8
 set isfname+=@-@
 
 " https://vim-jp.org/vimdoc-en/indent.html#cinoptions-values
 set cinoptions=l1N-sE-st0Lsg0
-let g:c_space_errors=1
 
 set guifont=Sarasa\ Mono\ SC
+set guioptions-=m
+set guioptions-=r
 set guioptions-=T
+
+
+let g:mapleader = " "
+let g:maplocalleader = "\\"
+
+" gv: reuse last selection
+vnoremap J :move '>+1<CR>gv=gv"
+vnoremap K :move '<-2<CR>gv=gv"
+
+" mz,J,`z
+nnoremap J mzJ`z
+
+vnoremap <leader>d "_d
+nnoremap <leader>d "_d
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>P "+P
+nnoremap <leader>p "+p
