@@ -4,8 +4,6 @@ filetype plugin indent on
 
 colorscheme desert
 
-set guicursor=a:block-blinkon0
-
 set nu
 
 set tabstop=4
@@ -35,7 +33,6 @@ set guifont=Sarasa\ Mono\ SC
 set guioptions-=m
 set guioptions-=r
 set guioptions-=T
-
 
 let g:mapleader = " "
 let g:maplocalleader = "\\"

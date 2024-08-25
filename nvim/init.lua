@@ -38,8 +38,6 @@ vim.keymap.set("n", "<leader>P", [["+P]])
 
 vim.cmd.colorscheme("desert")
 
-vim.opt.guicursor = "a:block-blinkon0"
-
 vim.opt.nu = true
 vim.opt.hidden = false
 
@@ -55,7 +53,6 @@ vim.opt.cursorline = true
 vim.opt.listchars = { space = '·', nbsp = '⎵', tab = '▸-' }
 
 vim.opt.swapfile = false
-vim.opt.undodir = vim.fn.stdpath('data') .. "/undodir"
 vim.opt.undofile = true
 
 vim.opt.isfname:append("@-@")
