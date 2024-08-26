@@ -1,9 +1,3 @@
-if has('win32')
-    let $vim_dir = "~/vimfiles"
-else
-    let $vim_dir = "~/.vim"
-endif
-
 syntax on
 
 filetype plugin indent on
@@ -27,7 +21,11 @@ set autoread
 set listchars=space:·,nbsp:⎵,tab:▸-
 
 set noswapfile
-set undodir=$vim_dir/undodir
+if has('win32')
+    set undodir=~\vimfiles\undodir
+else
+    set undodir=~/.vim/undodir
+endif
 set undofile
 
 set isfname+=@-@
