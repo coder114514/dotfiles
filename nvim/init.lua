@@ -60,6 +60,15 @@ vim.opt.isfname:append("@-@")
 -- https://vim-jp.org/vimdoc-en/indent.html#cinoptions-values
 vim.opt.cinoptions = "l1N-sE-st0Lsg0"
 
+-- restore cusor style on quit
+vim.api.nvim_create_autocmd({'VimLeave'}, {
+    pattern = '*',
+    callback = function ()
+        vim.opt.guicursor = ""
+        vim.fn.chansend(vim.v.stderr, "\x1b[ q")
+    end,
+})
+
 ---- Setup lazy.nvim
 require("lazy").setup({
     spec = {
