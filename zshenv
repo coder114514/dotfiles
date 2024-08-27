@@ -26,14 +26,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
-export EDITOR="nvim"
-export VISUAL="nvim"
-export SUDO_EDITOR="nvim"
-export TERMINAL="alacritty"
-export BROWSER="firefox"
-export VIDEO="vlc"
-export OPENER="xdg-open"
-export PAGER="less"
+export EDITOR="gvim -f" # for sudoedit
 
 typeset -U PATH path
 path=("$HOME/bin" "$path[@]")
