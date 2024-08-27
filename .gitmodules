@@ -1,0 +1,12 @@
+[submodule "vim-git-plugs/start/vim-airline"]
+	path = vim-git-plugs/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim-git-plugs/start/vim-lsp-settings"]
+	path = vim-git-plugs/start/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings
+[submodule "vim-git-plugs/start/vim-lsp"]
+	path = vim-git-plugs/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "vim-git-plugs/opt/vim-matchit"]
+	path = vim-git-plugs/opt/vim-matchit
+	url = https://github.com/adelarsq/vim-matchit
