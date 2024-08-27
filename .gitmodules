@@ -10,3 +10,6 @@
 [submodule "vim-git-plugs/opt/vim-matchit"]
 	path = vim-git-plugs/opt/vim-matchit
 	url = https://github.com/adelarsq/vim-matchit
+[submodule "vim-git-plugs/start/undotree"]
+	path = vim-git-plugs/start/undotree
+	url = https://github.com/mbbill/undotree
