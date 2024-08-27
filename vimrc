@@ -65,14 +65,16 @@ function g:StartLsp()
     function! OnLspBufferEnabled() abort
         setlocal omnifunc=lsp#complete
         setlocal signcolumn=yes
+        nmap <buffer> <expr><C-u> lsp#scroll(-4)
+        nmap <buffer> <expr><C-d> lsp#scroll(4)
         nmap <buffer> gi <plug>(lsp-definition)
-	    nmap <buffer> gd <plug>(lsp-declaration)
-	    nmap <buffer> gr <plug>(lsp-references)
-	    nmap <buffer> gl <plug>(lsp-document-diagnostics)
+        nmap <buffer> gd <plug>(lsp-declaration)
+        nmap <buffer> gr <plug>(lsp-references)
+        nmap <buffer> gl <plug>(lsp-document-diagnostics)
         nmap <buffer> go <plug>(lsp-type-definition)
         nmap <buffer> gs <plug>(lsp-signature-help)
-	    nmap <buffer> <F2> <plug>(lsp-rename)
-	    nmap <buffer> <F3> <plug>(lsp-hover)
+        nmap <buffer> <F2> <plug>(lsp-rename)
+        nmap <buffer> <F3> <plug>(lsp-hover)
     endfunction
 
     augroup lsp_install
