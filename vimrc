@@ -61,6 +61,8 @@ nnoremap <leader>p "+p
 
 packadd! matchit
 
+nnoremap <leader>u :UndotreeToggle<cr>
+
 function g:StartLsp()
     function! OnLspBufferEnabled() abort
         setlocal omnifunc=lsp#complete
