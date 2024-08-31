@@ -36,8 +36,6 @@ set gp=git\ grep\ -n
 set cinoptions=l1N-sE-st0Lsg0
 
 set guifont=Sarasa\ Mono\ SC
-set guioptions-=m
-set guioptions-=r
 set guioptions-=T
 
 let g:mapleader = " "
