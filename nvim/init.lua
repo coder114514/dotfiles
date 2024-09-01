@@ -21,19 +21,6 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- gv: reuse last selection
-vim.keymap.set("v", "J", [[:move '>+1<CR>gv=gv]])
-vim.keymap.set("v", "K", [[:move '<-2<CR>gv=gv]])
-
-vim.keymap.set("n", "J", "mzJ`z") -- mz,J,`z
-
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set("n", "<leader>p", [["+p]])
-vim.keymap.set("n", "<leader>P", [["+P]])
-
 -- options
 
 vim.cmd.colorscheme("desert")

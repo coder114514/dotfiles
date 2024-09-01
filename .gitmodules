@@ -13,6 +13,3 @@
 [submodule "vim-git-plugs/start/undotree"]
 	path = vim-git-plugs/start/undotree
 	url = https://github.com/mbbill/undotree
-[submodule "vim-git-plugs/opt/vimtex"]
-	path = vim-git-plugs/opt/vimtex
-	url = https://github.com/lervag/vimtex

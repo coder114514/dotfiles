@@ -1,6 +1,6 @@
 syntax on
 
-filetype plugin indent on " After all packadd!
+filetype plugin indent on
 
 colorscheme desert
 
@@ -47,17 +47,9 @@ set guioptions-=T
 let g:mapleader = " "
 let g:maplocalleader = "\\"
 
-" mz,J,`z
-nnoremap J mzJ`z
+nnoremap <leader>u :UndotreeToggle<cr>
 
-vnoremap <leader>d "_d
-nnoremap <leader>d "_d
-
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
-nnoremap <leader>P "+P
-nnoremap <leader>p "+p
+packadd! matchit
 
 function g:RemoveTrailingWs()
     let view = winsaveview()
@@ -68,10 +60,6 @@ function g:RemoveTrailingWs()
 endfunction
 
 command! RemoveTrailingWs call RemoveTrailingWs()
-
-packadd! matchit
-
-nnoremap <leader>u :UndotreeToggle<cr>
 
 function g:StartLsp()
     packadd vim-lsp
@@ -99,10 +87,3 @@ function g:StartLsp()
 endfunction
 
 :command! Lsp call StartLsp()
-
-packadd! vimtex
-let g:tex_flavor = 'latex'
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_mode = 0
-set conceallevel=1
-let g:tex_conceal='abdmg'
