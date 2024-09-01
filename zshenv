@@ -25,6 +25,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export TEXMACS_HOME_PATH="$XDG_CONFIG_HOME"/texmacs
 
 export EDITOR="gvim -f" # for sudoedit
 
