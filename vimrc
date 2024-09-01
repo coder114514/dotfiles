@@ -59,6 +59,16 @@ nnoremap <leader>Y "+Y
 nnoremap <leader>P "+P
 nnoremap <leader>p "+p
 
+function g:RemoveTrailingWs()
+    let view = winsaveview()
+    let [_, line, col, _, _] = getcurpos()
+    execute printf('%d substitute/\%%%dc\s\+$//e', line, col)
+    execute printf('vglobal/\%%%dl/substitute/\s\+$//e', line)
+    call winrestview(view)
+endfunction
+
+command! RemoveTrailingWs call RemoveTrailingWs()
+
 packadd! matchit
 
 nnoremap <leader>u :UndotreeToggle<cr>
