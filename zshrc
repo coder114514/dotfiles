@@ -12,6 +12,7 @@ WORDCHARS="${WORDCHARS/\//\\/}"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 SAVEHIST=1000
 HISTFILE="$XDG_STATE_HOME"/zsh/history

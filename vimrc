@@ -1,6 +1,6 @@
 syntax on
 
-filetype plugin indent on
+filetype plugin indent on " After all packadd!
 
 colorscheme desert
 
@@ -21,12 +21,18 @@ set autoread
 set listchars=space:·,nbsp:⎵,tab:▸-
 
 set noswapfile
+set undofile
 if has('win32')
     set undodir=~\vimfiles\undodir
 else
     set undodir=~/.vim/undodir
 endif
-set undofile
+
+if has('win32')
+    set viminfofile=~\vimfiles\viminfo
+else
+    set viminfofile=~/.vim/viminfo
+endif
 
 set isfname+=@-@
 
@@ -40,10 +46,6 @@ set guioptions-=T
 
 let g:mapleader = " "
 let g:maplocalleader = "\\"
-
-" gv: reuse last selection
-vnoremap J :move '>+1<CR>gv=gv"
-vnoremap K :move '<-2<CR>gv=gv"
 
 " mz,J,`z
 nnoremap J mzJ`z
@@ -62,8 +64,8 @@ packadd! matchit
 nnoremap <leader>u :UndotreeToggle<cr>
 
 function g:StartLsp()
-    packadd! vim-lsp
-    packadd! vim-lsp-settings
+    packadd vim-lsp
+    packadd vim-lsp-settings
 
     function! OnLspBufferEnabled() abort
         setlocal omnifunc=lsp#complete
@@ -82,9 +84,11 @@ function g:StartLsp()
         au!
         autocmd User lsp_buffer_enabled call OnLspBufferEnabled()
     augroup END
+
+    call lsp#enable()
 endfunction
 
-:command StartLsp call StartLsp()
+:command! Lsp call StartLsp()
 
 packadd! vimtex
 let g:tex_flavor = 'latex'
