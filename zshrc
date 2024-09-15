@@ -8,7 +8,7 @@ PROMPT='%F{red}$?%f %(!.%F{red}%n%f.%F{blue}%n%f) %F{green}%*%f %F{white}%~%f %F
 
 . /opt/zsh-keybind
 
-WORDCHARS="${WORDCHARS/\//\\/}"
+WORDCHARS=_
 
 alias ls=' ls --color=auto -F'
 alias ll='ls -l'

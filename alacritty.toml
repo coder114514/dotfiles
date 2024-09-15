@@ -34,6 +34,8 @@ bindings = [
 
 [cursor]
 unfocused_hollow = true
+style.shape = "Beam"
+style.blinking = "On"
 
 # Breeze
 

@@ -10,7 +10,8 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 export LESSHISTFILE=-
-export DIFFPROG="nvim -d"
+export DIFFPROG="gvim -d"
+export EDITOR="gvim -f" # for sudoedit
 
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default64
 export WINEARCH=win64
@@ -25,9 +26,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export GOPATH="$XDG_DATA_HOME"/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export TEXMACS_HOME_PATH="$XDG_CONFIG_HOME"/texmacs
-
-export EDITOR="gvim -f" # for sudoedit
+export TEXMACS_HOME_PATH="$XDG_CONFIG_HOME"/TeXmacs
 
 typeset -U PATH path
 path=("$HOME/bin" "$path[@]")
