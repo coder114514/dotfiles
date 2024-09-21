@@ -21,6 +21,9 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+
 -- options
 
 vim.opt.nu = true

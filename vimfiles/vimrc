@@ -47,6 +47,8 @@ let g:mapleader = " "
 let g:maplocalleader = "\\"
 
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap H ^
+nnoremap L $
 
 packadd! matchit
 

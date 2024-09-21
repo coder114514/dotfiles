@@ -1,5 +1,8 @@
-config/emacs/auto-save-list
-config/emacs/elpa
-config/emacs/tutorial
+config/emacs/auto-save-list/
+config/emacs/elpa/
+config/emacs/tutorial/
 config/emacs/ido.last
 config/emacs/smex-items
+vimfiles/viminfo
+vimfiles/.netrwhist
+vimfiles/undodir/
