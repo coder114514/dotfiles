@@ -23,8 +23,6 @@ vim.g.maplocalleader = "\\"
 
 -- options
 
-vim.cmd.colorscheme("desert")
-
 vim.opt.nu = true
 vim.opt.hidden = false
 
@@ -64,7 +62,5 @@ require("lazy").setup({
     },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
-    install = { colorscheme = { "desert" } },
-    -- automatically check for plugin updates
-    checker = { enabled = true },
+    install = { colorscheme = { "gruvbox", "habamax" } },
 })
