@@ -1,3 +1,25 @@
+# tty
+bindkey "^[[1~"   beginning-of-line  # Home
+bindkey "^[[4~"   end-of-line        # End
+bindkey "^[[3~"   delete-char        # Delete
+# no Alt+Right
+# no Alt+Left
+# no Ctrl+Right
+# no Ctrl+Left
+# no Ctrl+Bksp
+# no Ctrl+Del
+
+# pts
+bindkey "^[[H"    beginning-of-line  # Home
+bindkey "^[[F"    end-of-line        # End
+bindkey "^[[3~"   delete-char        # Delete
+bindkey "^[[1;3C" forward-word       # Alt+Right
+bindkey "^[[1;3D" backward-word      # Alt+Left
+bindkey "^[[1;5C" forward-word       # Ctrl+Right
+bindkey "^[[1;5D" backward-word      # Ctrl+Left
+bindkey "^H"      backward-kill-word # Ctrl+Bksp
+bindkey "^[[3;5~" kill-word          # Ctrl+Del
+
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
@@ -5,8 +27,6 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 setopt PROMPT_SUBST
 PROMPT='%F{red}$?%f %(!.%F{red}%n%f.%F{blue}%n%f) %F{green}%*%f %F{white}%~%f %F{red}${vcs_info_msg_0_}%f%# '
-
-. /opt/zsh-keybind
 
 WORDCHARS=_
 
