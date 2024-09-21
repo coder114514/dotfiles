@@ -10,8 +10,8 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 export LESSHISTFILE=-
-export DIFFPROG="gvim -d"
-export EDITOR="gvim -f" # for sudoedit
+export DIFFPROG="nvim -d"
+export EDITOR="nvim" # for sudoedit
 
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default64
 export WINEARCH=win64
