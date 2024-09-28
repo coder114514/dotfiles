@@ -21,9 +21,6 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('n', 'H', '^')
-vim.keymap.set('n', 'L', '$')
-
 -- options
 
 vim.opt.nu = true
@@ -39,6 +36,8 @@ vim.opt.incsearch = true
 
 vim.opt.cursorline = true
 vim.opt.listchars = { space = '·', nbsp = '⎵', tab = '▸-' }
+vim.opt.list = true
+vim.g.c_space_errors = 1 -- not working for some reason
 
 vim.opt.swapfile = false
 vim.opt.undofile = true
@@ -47,6 +46,12 @@ vim.opt.isfname:append("@-@")
 
 -- https://vim-jp.org/vimdoc-en/indent.html#cinoptions-values
 vim.opt.cinoptions = "l1N-sE-st0Lsg0"
+
+vim.api.nvim_create_user_command('RemoveTrailingWs', function ()
+    local saved = vim.fn.winsaveview()
+    vim.cmd("%s/\\s\\+$//e")
+    vim.fn.winrestview(saved)
+end, {})
 
 -- restore cusor style on quit
 vim.api.nvim_create_autocmd({'VimLeave'}, {

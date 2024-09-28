@@ -43,21 +43,19 @@ set cinoptions=l1N-sE-st0Lsg0
 set guifont=Sarasa\ Mono\ SC
 set guioptions-=T
 
+let c_space_errors = 1
+
 let g:mapleader = " "
 let g:maplocalleader = "\\"
 
 nnoremap <leader>u :UndotreeToggle<cr>
-nnoremap H ^
-nnoremap L $
 
 packadd! matchit
 
 function g:RemoveTrailingWs()
-    let view = winsaveview()
-    let [_, line, col, _, _] = getcurpos()
-    execute printf('%d substitute/\%%%dc\s\+$//e', line, col)
-    execute printf('vglobal/\%%%dl/substitute/\s\+$//e', line)
-    call winrestview(view)
+    let saved = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(saved)
 endfunction
 
 command! RemoveTrailingWs call RemoveTrailingWs()

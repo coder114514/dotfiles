@@ -9,9 +9,11 @@ linkfile() {
     mkdir -p $(dirname "$destination")
 
     if [ -e "$destination" ]; then
-        echo "[WARNING] $destination already exists, renaming to $destination.bak"
-        mv "$destination" "$destination.bak"
-        exitcode=1
+        echo "[ERROR] conflict: $destination already exists"
+        exit 1
+        # echo "[WARNING] $destination already exists, renaming to $destination.bak"
+        # mv "$destination" "$destination.bak"
+        # exitcode=1
     fi
 
     ln -s "$filename" "$destination"
