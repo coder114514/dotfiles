@@ -9,15 +9,12 @@ linkfile() {
     mkdir -p $(dirname "$destination")
 
     if [ -e "$destination" ]; then
-        echo "[ERROR] conflict: $destination already exists"
-        exit 1
-        # echo "[WARNING] $destination already exists, renaming to $destination.bak"
-        # mv "$destination" "$destination.bak"
-        # exitcode=1
+        echo "[WARNING] conflict: $destination already exists, skipping"
+        exitcode=1
+    else
+        ln -s "$filename" "$destination"
+        echo "[LINK] $filename -> $destination"
     fi
-
-    ln -s "$filename" "$destination"
-    echo "[LINK] $filename -> $destination"
 }
 
 linkfile zshrc .zshrc
