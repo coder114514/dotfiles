@@ -30,13 +30,9 @@ PROMPT='%F{red}$?%f %(!.%F{red}%n%f.%F{blue}%n%f) %F{green}%*%f %F{white}%~%f %F
 
 WORDCHARS=_
 
-alias ls=' ls --color=auto -F'
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -al'
-alias pwd=' pwd'
-alias clear=' clear'
-alias exit=' exit'
 alias grep='grep --color=auto'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
