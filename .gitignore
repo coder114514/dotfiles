@@ -6,3 +6,4 @@ config/emacs/smex-items
 vimfiles/viminfo
 vimfiles/.netrwhist
 vimfiles/undodir/
+config/nvim/lazy-lock.json
