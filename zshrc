@@ -1,18 +1,9 @@
-# tty
-bindkey "^[[1~"   beginning-of-line  # Home
-bindkey "^[[4~"   end-of-line        # End
-bindkey "^[[3~"   delete-char        # Delete
-# no Alt+Right
-# no Alt+Left
-# no Ctrl+Right
-# no Ctrl+Left
-# no Ctrl+Bksp
-# no Ctrl+Del
-
-# pts
 bindkey "^[[H"    beginning-of-line  # Home
+bindkey "^[[1~"   beginning-of-line  # Home (tty)
 bindkey "^[[F"    end-of-line        # End
+bindkey "^[[4~"   end-of-line        # End (tty)
 bindkey "^[[3~"   delete-char        # Delete
+bindkey "^[[3~"   delete-char        # Delete (tty)
 bindkey "^[[1;3C" forward-word       # Alt+Right
 bindkey "^[[1;3D" backward-word      # Alt+Left
 bindkey "^[[1;5C" forward-word       # Ctrl+Right
@@ -33,6 +24,7 @@ WORDCHARS=_
 alias ll='ls -l'
 alias la='ls -a'
 alias lal='ls -al'
+alias ls='ls --color=auto -F'
 alias grep='grep --color=auto'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
