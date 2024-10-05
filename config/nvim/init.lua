@@ -19,11 +19,14 @@ vim.opt.runtimepath:prepend(lazypath)
 ---- loading lazy.nvim so that mappings are correct.
 ---- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 -- options
 
 vim.opt.nu = true
+vim.opt.rnu = true
+vim.opt.scrolloff=5
+
 vim.opt.hidden = false
 
 vim.opt.tabstop = 4

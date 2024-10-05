@@ -1,9 +1,14 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
+if has("gui_running")
+    set lines=45 columns=160
+endif
+
 colorscheme desert
 
 set nu
+set rnu
 
 set tabstop=4
 set shiftwidth=4
@@ -46,7 +51,7 @@ set guioptions-=T
 let c_space_errors = 1
 
 let g:mapleader = " "
-let g:maplocalleader = "\\"
+let g:maplocalleader = " "
 
 nnoremap <leader>u :UndotreeToggle<cr>
 
@@ -67,6 +72,7 @@ function g:StartLsp()
     function! OnLspBufferEnabled() abort
         setlocal omnifunc=lsp#complete
         setlocal signcolumn=yes
+        nmap <buffer> K <plug>(lsp-hover)
         nmap <buffer> gi <plug>(lsp-definition)
         nmap <buffer> gd <plug>(lsp-declaration)
         nmap <buffer> gr <plug>(lsp-references)
@@ -74,7 +80,7 @@ function g:StartLsp()
         nmap <buffer> go <plug>(lsp-type-definition)
         nmap <buffer> gs <plug>(lsp-signature-help)
         nmap <buffer> <F2> <plug>(lsp-rename)
-        nmap <buffer> <F3> <plug>(lsp-hover)
+        nmap <buffer> <F3> <plug>(lsp-code-action)
     endfunction
 
     augroup lsp_install
