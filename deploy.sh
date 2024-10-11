@@ -17,23 +17,26 @@ linkfile() {
     fi
 }
 
+pushd "$path" > /dev/null
+
 linkfile zshrc .zshrc
 linkfile zshenv .zshenv
-linkfile vimfiles .vim
 
 if [ -f "$HOME/.config" ]; then
     echo "[ERROR] $HOME/.config is a file, should be a dir"
+    popd > /dev/null
     exit 1
 fi
 
-[ ! -e $HOME/.config ] && mkdir -p $HOME/.config
+[ ! -e "$HOME/.config" ] && mkdir -p "$HOME/.config"
 
-pushd $path/config >/dev/null
+pushd config > /dev/null
 
 for dir in *; do
     linkfile "config/$dir" ".config/$dir"
 done
 
-popd >/dev/null
+popd > /dev/null
+popd > /dev/null
 
 exit $exitcode
