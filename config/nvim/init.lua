@@ -21,6 +21,8 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.keymap.set("x", "p", "P")
+
 -- options
 
 vim.opt.nu = true
