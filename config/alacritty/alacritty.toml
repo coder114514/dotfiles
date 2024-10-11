@@ -26,7 +26,8 @@ style = "Regular"
 
 [keyboard]
 bindings = [
-   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+   { key = "Backspace", mods = "Alt", chars = "\b" }
 ]
 
 # Breeze Theme (borrowed from kconsole)
