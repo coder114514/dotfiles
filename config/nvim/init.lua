@@ -1,3 +1,9 @@
+local scriptpath = debug.getinfo(1, 'S').source:sub(2)
+local scripthome = vim.fn.fnamemodify(scriptpath, ':h')
+
+vim.opt.rtp:prepend(scripthome)
+package.path = package.path .. ';' .. scripthome .. '/?.lua'
+
 ---- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
