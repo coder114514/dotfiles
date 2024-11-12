@@ -57,6 +57,7 @@ local opts = {
             lazy = '💤 ',
         },
     },
+    rocks = { enabled = false },
     install = { colorscheme = { "gruvbox", "habamax" } },
 }
 
