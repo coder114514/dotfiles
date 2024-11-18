@@ -1,3 +1,10 @@
+-----------------------------------------------------------------------------
+---- Configurable Variables before loading this script:
+---    vim.g.have_nerd_font
+----   vim.g.lazyroot
+---    vim.g.lazyspec
+-----------------------------------------------------------------------------
+
 local scriptpath = debug.getinfo(1, 'S').source:sub(2)
 local scripthome = vim.fn.fnamemodify(scriptpath, ':h')
 
@@ -13,7 +20,7 @@ vim.cmd.source(scripthome .. "/vim.vim")
 ------------------------------------------------------------------------------
 ---- Bootstrap lazy.nvim
 ------------------------------------------------------------------------------
-local lazyroot = vim.fn.stdpath "data" .. "/lazy"
+local lazyroot = vim.g.lazyroot or vim.fn.stdpath "data" .. "/lazy"
 local lazypath = lazyroot .. "/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -33,8 +40,12 @@ vim.opt.runtimepath:prepend(lazypath)
 ------------------------------------------------------------------------------
 ---- lazy options
 ------------------------------------------------------------------------------
+local spec = vim.g.lazyspec or {}
+spec["import"] = "plugins"
+
 local opts = {
     root = lazyroot,
+    spec = spec,
     performance = {
         rtp = {
             reset = false
@@ -57,11 +68,15 @@ local opts = {
             lazy = '💤 ',
         },
     },
-    rocks = { enabled = false },
-    install = { colorscheme = { "gruvbox", "habamax" } },
+    rocks = {
+        enabled = false
+    },
+    install = {
+        colorscheme = { "gruvbox", "habamax" }
+    },
 }
 
 ------------------------------------------------------------------------------
 ---- Setup lazy.nvim
 ------------------------------------------------------------------------------
-require("lazy").setup("plugins", opts)
+require("lazy").setup(opts)
