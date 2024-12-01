@@ -10,11 +10,6 @@ local scripthome = vim.fn.fnamemodify(scriptpath, ':h')
 
 package.path = package.path .. ';' .. scripthome .. '/?.lua'
 
-------------------------------------------------------------------------------
----- Make sure to setup `mapleader` and `maplocalleader` before
----- loading lazy.nvim so that mappings are correct.
----- This is also a good place to setup other settings (vim.opt)
-------------------------------------------------------------------------------
 vim.cmd.source(scripthome .. "/vim.vim")
 
 ------------------------------------------------------------------------------
@@ -53,19 +48,7 @@ local opts = {
     },
     ui = {
         icons = vim.g.have_nerd_font and {} or {
-            cmd = '⌘',
-            config = '🛠',
-            event = '📅',
-            ft = '📂',
-            init = '⚙',
-            keys = '🗝',
-            plugin = '🔌',
-            runtime = '💻',
-            require = '🌙',
-            source = '📄',
-            start = '🚀',
-            task = '📌',
-            lazy = '💤 ',
+            cmd = '', config = '', event = '', ft = '', init = '', keys = '', plugin = '', runtime = '', require = '', source = '', start = '', task = '', lazy = ''
         },
     },
     rocks = {
