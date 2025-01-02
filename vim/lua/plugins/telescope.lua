@@ -1,3 +1,7 @@
+function config_dir()
+    return vim.fn.fnamemodify(debug.getinfo(2, 'S').source:sub(2), ':p:h:h:h')
+end
+
 return {
     "nvim-telescope/telescope.nvim",
     event = 'VimEnter',
@@ -39,5 +43,9 @@ return {
         vim.keymap.set('n', '<leader>sn', function()
             builtin.find_files { cwd = vim.fn.stdpath 'config' }
         end, { desc = '[S]earch [N]eovim files' })
+
+        vim.keymap.set('n', '<leader>sc', function()
+            builtin.find_files { cwd = config_dir() }
+        end, { desc = '[S]earch [C]onfig files' })
     end,
 }
