@@ -1,10 +1,10 @@
-function config_dir()
+local function config_dir()
     return vim.fn.fnamemodify(debug.getinfo(2, 'S').source:sub(2), ':p:h:h:h')
 end
 
 return {
     "nvim-telescope/telescope.nvim",
-    event = 'VimEnter',
+    lazy = false,
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
