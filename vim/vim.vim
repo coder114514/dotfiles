@@ -157,20 +157,8 @@ if has('mouse')
     endif
 endif
 
-if has('clipboard')
-    set clipboard=unnamedplus
-endif
 
-
-let g:mapleader = " "
-let g:maplocalleader = " "
-inoremap <silent> <C-h> <left>
-inoremap <silent> <C-l> <right>
-inoremap <silent> <C-j> <down>
-inoremap <silent> <C-k> <up>
-" Do NOT overwrite the unnamed register when pasting in visual mode.
-xnoremap <silent> p P
-
+IncScript keymaps.vim
 
 function! g:RemoveTrailingWs()
     let saved = winsaveview()
