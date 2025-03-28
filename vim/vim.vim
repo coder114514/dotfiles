@@ -2,11 +2,19 @@ let s:scripthome = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
 exec 'set rtp+='. fnameescape(s:scripthome)
 
-if has("gui_running")
+if has("gui_running") && !has("nvim")
     set lines=45 columns=160
     set guifont=Sarasa\ Mono\ SC
     set guioptions-=T
 endif
+
+if g:neovide
+    set guifont=SarasaMonoSC\ Nerd\ Font:h10
+    let g:neovide_transparency = 0.9
+    let g:neovide_normal_opacity = 0.9
+    let g:neovide_animation_length = 0
+    let g:neovide_cursor_trail_size = 0
+end
 
 " many settings are adapted from tpope's vim-sensible and vim's defaults.vim
 
@@ -149,13 +157,7 @@ set expandtab
 
 set cinoptions=l1N-sE-st0Lsg0
 
-if has('mouse')
-    if &term =~ 'xterm' || &term =~ 'alacritty'
-        set mouse=a
-    else
-        set mouse=nvi
-    endif
-endif
+set mouse=a
 
 
 IncScript keymaps.vim

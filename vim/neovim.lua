@@ -2,7 +2,7 @@
 ---- Configurable Variables before loading this script:
 ---    vim.g.have_nerd_font
 ----   vim.g.lazyroot
----    vim.g.lazyspec
+---    lazyspec # passed through loadfile(...)(<lazyspec>)
 -----------------------------------------------------------------------------
 
 local scriptpath = debug.getinfo(1, 'S').source:sub(2)
@@ -35,12 +35,9 @@ vim.opt.runtimepath:prepend(lazypath)
 ------------------------------------------------------------------------------
 ---- lazy options
 ------------------------------------------------------------------------------
-local spec = vim.g.lazyspec or {}
-spec["import"] = "plugins"
-
 local opts = {
     root = lazyroot,
-    spec = spec,
+    import = "plugins",
     performance = {
         rtp = {
             reset = false

@@ -4,9 +4,27 @@ let g:maplocalleader = " "
 " do NOT overwrite the unnamed register when pasting in visual mode.
 xnoremap <silent> p P
 
+"----------------------------------------------------------------------
+" window
+"----------------------------------------------------------------------
+nnoremap <silent><space>= :resize +3<cr>
+nnoremap <silent><space>- :resize -3<cr>
+nnoremap <silent><space>, :vertical resize -3<cr>
+nnoremap <silent><space>. :vertical resize +3<cr>
+
 " fast save
 nnoremap <C-S> :w<cr>
 inoremap <C-S> <ESC>:w<cr>
+
+nnoremap <silent><m-t> :tabnew<cr>
+vnoremap <silent><m-t> <ESC>:tabnew<cr>
+inoremap <silent><m-t> <ESC>:tabnew<cr>
+nnoremap <silent><m-w> :tabclose<cr>
+inoremap <silent><m-w> <ESC>:tabclose<cr>
+nnoremap <silent><m-v> :close<cr>
+inoremap <silent><m-v> <esc>:close<cr>
+nnoremap <m-s> :w<cr>
+inoremap <m-s> <esc>:w<cr>
 
 "----------------------------------------------------------------------
 " Movement Enhancement
