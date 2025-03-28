@@ -8,7 +8,7 @@ if has("gui_running") && !has("nvim")
     set guioptions-=T
 endif
 
-if g:neovide
+if exists("g:neovide")
     set guifont=SarasaMonoSC\ Nerd\ Font:h10
     let g:neovide_transparency = 0.9
     let g:neovide_normal_opacity = 0.9
