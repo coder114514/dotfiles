@@ -37,7 +37,6 @@ vim.opt.runtimepath:prepend(lazypath)
 ------------------------------------------------------------------------------
 local opts = {
     root = lazyroot,
-    import = "plugins",
     performance = {
         rtp = {
             reset = false
@@ -59,4 +58,4 @@ local opts = {
 ------------------------------------------------------------------------------
 ---- Setup lazy.nvim
 ------------------------------------------------------------------------------
-require("lazy").setup(opts)
+require("lazy").setup("plugins", opts)
