@@ -1,6 +1,7 @@
 let s:scripthome = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
 exec 'set rtp+='. fnameescape(s:scripthome)
+exec 'set packpath+=' . fnameescape(s:scripthome)
 
 if has("gui_running") && !has("nvim")
     set lines=45 columns=160

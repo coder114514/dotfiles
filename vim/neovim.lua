@@ -37,9 +37,10 @@ vim.opt.runtimepath:prepend(lazypath)
 local opts = {
     root = lazyroot,
     performance = {
+        reset_packpath = false,
         rtp = {
-            reset = false
-        }
+            reset = false,
+        },
     },
     ui = {
         icons = vim.g.have_nerd_font and {} or {
@@ -58,3 +59,4 @@ local opts = {
 ---- Setup lazy.nvim
 ------------------------------------------------------------------------------
 require("lazy").setup("plugins", opts)
+vim.cmd("packloadall")
