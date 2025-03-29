@@ -47,5 +47,17 @@ return {
         vim.keymap.set('n', '<leader>sc', function()
             builtin.find_files { cwd = config_dir() }
         end, { desc = '[S]earch [C]onfig files' })
+
+        -- LSP
+        vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { desc = 'LSP: Re[n]ame' })
+        vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { desc = 'LSP: Code [A]ction' })
+        vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { desc = 'LSP: Goto [R]eferences' })
+        vim.keymap.set('n', 'gri', require('telescope.builtin').lsp_implementations, { desc = 'LSP: Goto [I]mplementation' })
+        vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols, { desc = 'LSP: Document Symbols' })
+        vim.keymap.set('n', 'grd', require('telescope.builtin').lsp_definitions, { desc = 'Goto [D]efinition' })
+        vim.keymap.set('n', 'grD', vim.lsp.buf.declaration, { desc = 'Goto [D]eclaration' })
+        vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, { desc = 'Type [D]efinition' })
+        vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[W]orkspace [S]ymbols' })
+        vim.keymap.set('n', '<leader>th', function() print("Inlay Hints Not Loaded") end, { desc = '[T]oggle Inlay [H]ints' })
     end,
 }

@@ -2,7 +2,6 @@
 ---- Configurable Variables before loading this script:
 ---    vim.g.have_nerd_font
 ----   vim.g.lazyroot
----    lazyspec # passed through loadfile(...)(<lazyspec>)
 -----------------------------------------------------------------------------
 
 local scriptpath = debug.getinfo(1, 'S').source:sub(2)
