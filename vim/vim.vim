@@ -192,3 +192,7 @@ augroup VIMSTUFF
                 \ echo gettext('You discovered the command-line window! You can close it with ":q".') |
                 \ echohl None
 augroup END
+
+
+packloadall
+helptags ALL

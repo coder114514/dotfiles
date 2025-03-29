@@ -59,4 +59,3 @@ local opts = {
 ---- Setup lazy.nvim
 ------------------------------------------------------------------------------
 require("lazy").setup("plugins", opts)
-vim.cmd("packloadall")
