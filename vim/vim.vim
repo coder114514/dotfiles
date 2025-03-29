@@ -196,3 +196,4 @@ augroup END
 
 packloadall
 helptags ALL
+let g:airline#extensions#tabline#enabled = 1
