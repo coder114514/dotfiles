@@ -146,7 +146,9 @@ set nohidden
 set isfname+=@-@
 set cursorline
 
-set hls
+if has("extra_search")
+    set hls
+endif
 set ignorecase
 set smartcase
 
