@@ -11,6 +11,30 @@ package.path = package.path .. ';' .. scripthome .. '/?.lua'
 
 vim.cmd.source(scripthome .. "/vim.vim")
 
+if not vim.g.neovide then
+    -- https://www.reddit.com/r/neovim/comments/zzs7eq/using_alacritty_but_no_transparency/
+    local highlights = {
+        'Normal',
+        'LineNr',
+        'Folded',
+        'NonText',
+        'SpecialKey',
+        'VertSplit',
+        'SignColumn',
+        'EndOfBuffer',
+        'TablineFill', -- this is specific to how I like my tabline to look like
+    }
+    for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
+end
+
+vim.cmd([[
+    set guicursor+=t:blinkon0
+    " https://github.com/vim-airline/vim-airline/issues/2693
+    hi statusline cterm=NONE gui=NONE
+    hi tabline cterm=NONE gui=NONE
+    hi winbar cterm=NONE gui=NONE
+]])
+
 ------------------------------------------------------------------------------
 ---- Bootstrap lazy.nvim
 ------------------------------------------------------------------------------
