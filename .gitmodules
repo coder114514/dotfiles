@@ -1,6 +1,6 @@
 [submodule "vim/pack/plugins/start/vim-terminal-help"]
-	path = vim/pack/plugins/start/vim-terminal-help
+	path = vim/pack/plugins/opt/vim-terminal-help
 	url = https://github.com/skywind3000/vim-terminal-help.git
 [submodule "vim/pack/plugins/start/vim-airline"]
-	path = vim/pack/plugins/start/vim-airline
+	path = vim/pack/plugins/opt/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
