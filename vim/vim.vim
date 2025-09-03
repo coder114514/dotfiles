@@ -17,7 +17,7 @@ if exists("g:neovide")
     let g:neovide_cursor_trail_size = 0
 end
 
-" many settings are adapted from tpope's vim-sensible and vim's defaults.vim
+""" [BEGIN] many settings are adapted from tpope's vim-sensible and vim's defaults.vim
 
 if &compatible
     set nocompatible
@@ -38,10 +38,6 @@ endif
 " vim search
 if has('reltime')
     set incsearch
-endif
-" Use CTRL-L to clear the highlighting of 'hlsearch' and call :diffupdate.
-if maparg('<C-L>', 'n') ==# ''
-    nnoremap <silent> <C-L> :nohls<C-R>=has('diff')?'<Bar>diffupdate':''<CR><Bar>normal! <C-L><CR>
 endif
 
 set laststatus=2
@@ -136,24 +132,25 @@ if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has
     runtime ftplugin/man.vim
 endif
 
-" Above settings are adapted from tpope's vim-sensible
+""" [END] Above settings are adapted from tpope's vim-sensible
 
+if !has('nvim')
+    let &t_SI = "\e[6 q"
+    let &t_SR = "\e[3 q"
+    let &t_EI = "\e[2 q"
 
-set belloff=all
-set showcmd
+    set <M-H>=H
+    set <M-J>=J
+    set <M-K>=K
+    set <M-L>=L
+endif
+
 set list
-set nohidden
 set isfname+=@-@
 set cursorline
 
-if has("extra_search")
-    set hls
-endif
 set ignorecase
 set smartcase
-
-set nu
-set rnu
 
 set shiftwidth=4
 set expandtab
@@ -162,7 +159,7 @@ set cinoptions=l1N-sE-st0Lsg0
 
 set mouse=a
 
-
+IncScript minimal.vim
 IncScript keymaps.vim
 
 function! g:RemoveTrailingWs()
@@ -196,6 +193,9 @@ augroup VIMSTUFF
 augroup END
 
 
-packloadall
-helptags ALL
 let g:airline#extensions#tabline#enabled = 1
+packadd vim-airline
+
+packadd vim-terminal-help
+
+helptags ALL
