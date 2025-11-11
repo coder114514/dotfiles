@@ -10,16 +10,16 @@ return {
     },
     config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-        vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-        vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-        vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-        vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-        vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-        vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-        vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+        vim.keymap.set('n', '<leader>sh',       builtin.help_tags,   { desc = '[S]earch [H]elp' })
+        vim.keymap.set('n', '<leader>sk',       builtin.keymaps,     { desc = '[S]earch [K]eymaps' })
+        vim.keymap.set('n', '<leader>sf',       builtin.find_files,  { desc = '[S]earch [F]iles' })
+        vim.keymap.set('n', '<leader>ss',       builtin.builtin,     { desc = '[S]earch [S]elect Telescope' })
+        vim.keymap.set('n', '<leader>sw',       builtin.grep_string, { desc = '[S]earch current [W]ord' })
+        vim.keymap.set('n', '<leader>sg',       builtin.live_grep,   { desc = '[S]earch by [G]rep' })
+        vim.keymap.set('n', '<leader>sd',       builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+        vim.keymap.set('n', '<leader>sr',       builtin.resume,      { desc = '[S]earch [R]esume' })
+        vim.keymap.set('n', '<leader>s.',       builtin.oldfiles,    { desc = '[S]earch Recent Files ("." for repeat)' })
+        vim.keymap.set('n', '<leader><leader>', builtin.buffers,     { desc = '[ ] Find existing buffers' })
 
         -- Slightly advanced example of overriding default behavior and theme
         vim.keymap.set('n', '<leader>/', function()
@@ -48,16 +48,16 @@ return {
             builtin.find_files { cwd = config_dir() }
         end, { desc = '[S]earch [C]onfig files' })
 
-        -- LSP
-        vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { desc = 'LSP: Re[n]ame' })
-        vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action, { desc = 'LSP: Code [A]ction' })
-        vim.keymap.set('n', 'grr', require('telescope.builtin').lsp_references, { desc = 'LSP: Goto [R]eferences' })
-        vim.keymap.set('n', 'gri', require('telescope.builtin').lsp_implementations, { desc = 'LSP: Goto [I]mplementation' })
-        vim.keymap.set('n', 'gO', require('telescope.builtin').lsp_document_symbols, { desc = 'LSP: Document Symbols' })
-        vim.keymap.set('n', 'grd', require('telescope.builtin').lsp_definitions, { desc = 'Goto [D]efinition' })
-        vim.keymap.set('n', 'grD', vim.lsp.buf.declaration, { desc = 'Goto [D]eclaration' })
-        vim.keymap.set('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, { desc = 'Type [D]efinition' })
-        vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = '[W]orkspace [S]ymbols' })
-        vim.keymap.set('n', '<leader>th', function() print("Inlay Hints Not Loaded") end, { desc = '[T]oggle Inlay [H]ints' })
+        -- Replace some default LSP shortcuts with those of telescope and add better descriptions
+        vim.keymap.set('n',          'grn',        vim.lsp.buf.rename,                                         { desc = 'LSP: Re[n]ame' })
+        vim.keymap.set({ 'n', 'x' }, 'gra',        vim.lsp.buf.code_action,                                    { desc = 'LSP: Code [A]ction' })
+        vim.keymap.set('n',          'grr',        require('telescope.builtin').lsp_references,                { desc = 'LSP: Goto [R]eferences' })
+        vim.keymap.set('n',          'gri',        require('telescope.builtin').lsp_implementations,           { desc = 'LSP: Goto [I]mplementation' })
+        vim.keymap.set('n',          'grd',        require('telescope.builtin').lsp_definitions,               { desc = 'LSP: Goto [D]efinition' })
+        vim.keymap.set('n',          'grD',        vim.lsp.buf.declaration,                                    { desc = 'LSP: Goto [D]eclaration' })
+        vim.keymap.set('n',          'grt',        require('telescope.builtin').lsp_type_definitions,          { desc = 'LSP: [T]ype Definition' })
+        vim.keymap.set('n',          'gO',         require('telescope.builtin').lsp_document_symbols,          { desc = 'LSP: [O]pen Document Symbols' })
+        vim.keymap.set('n',          'gW',         require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = 'LSP: Open [W]orkspace Symbols' })
+        vim.keymap.set('n',          '<leader>th', function() print("Inlay Hints Not Loaded") end,             { desc = 'LSP: [T]oggle Inlay [H]ints' })
     end,
 }
