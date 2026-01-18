@@ -4,3 +4,6 @@
 [submodule "vim/pack/plugins/opt/vim-airline"]
 	path = vim/pack/plugins/opt/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/plugins/opt/vim-sensible"]
+	path = vim/pack/plugins/opt/vim-sensible
+	url = https://github.com/tpope/vim-sensible

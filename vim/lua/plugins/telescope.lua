@@ -41,23 +41,23 @@ return {
 
         -- Shortcut for searching your Neovim configuration files
         vim.keymap.set('n', '<leader>sn', function()
-            builtin.find_files { cwd = vim.fn.stdpath 'config' }
+            builtin.find_files { cwd = vim.fn.stdpath 'config'  }
         end, { desc = '[S]earch [N]eovim files' })
 
         vim.keymap.set('n', '<leader>sc', function()
-            builtin.find_files { cwd = config_dir() }
+            builtin.find_files { cwd = config_dir(), file_ignore_patterns = { "^pack/" } }
         end, { desc = '[S]earch [C]onfig files' })
 
         -- Replace some default LSP shortcuts with those of telescope and add better descriptions
-        vim.keymap.set('n',          'grn',        vim.lsp.buf.rename,                                         { desc = 'LSP: Re[n]ame' })
-        vim.keymap.set({ 'n', 'x' }, 'gra',        vim.lsp.buf.code_action,                                    { desc = 'LSP: Code [A]ction' })
-        vim.keymap.set('n',          'grr',        require('telescope.builtin').lsp_references,                { desc = 'LSP: Goto [R]eferences' })
-        vim.keymap.set('n',          'gri',        require('telescope.builtin').lsp_implementations,           { desc = 'LSP: Goto [I]mplementation' })
-        vim.keymap.set('n',          'grd',        require('telescope.builtin').lsp_definitions,               { desc = 'LSP: Goto [D]efinition' })
-        vim.keymap.set('n',          'grD',        vim.lsp.buf.declaration,                                    { desc = 'LSP: Goto [D]eclaration' })
-        vim.keymap.set('n',          'grt',        require('telescope.builtin').lsp_type_definitions,          { desc = 'LSP: [T]ype Definition' })
-        vim.keymap.set('n',          'gO',         require('telescope.builtin').lsp_document_symbols,          { desc = 'LSP: [O]pen Document Symbols' })
-        vim.keymap.set('n',          'gW',         require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc = 'LSP: Open [W]orkspace Symbols' })
-        vim.keymap.set('n',          '<leader>th', function() print("Inlay Hints Not Loaded") end,             { desc = 'LSP: [T]oggle Inlay [H]ints' })
+        vim.keymap.set('n',          'grn',        vim.lsp.buf.rename,                             { desc = 'LSP: Re[n]ame' })
+        vim.keymap.set({ 'n', 'x' }, 'gra',        vim.lsp.buf.code_action,                        { desc = 'LSP: Code [A]ction' })
+        vim.keymap.set('n',          'grr',        builtin.lsp_references,                         { desc = 'LSP: Goto [R]eferences' })
+        vim.keymap.set('n',          'gri',        builtin.lsp_implementations,                    { desc = 'LSP: Goto [I]mplementation' })
+        vim.keymap.set('n',          'grd',        builtin.lsp_definitions,                        { desc = 'LSP: Goto [D]efinition' })
+        vim.keymap.set('n',          'grD',        vim.lsp.buf.declaration,                        { desc = 'LSP: Goto [D]eclaration' })
+        vim.keymap.set('n',          'grt',        builtin.lsp_type_definitions,                   { desc = 'LSP: [T]ype Definition' })
+        vim.keymap.set('n',          'gO',         builtin.lsp_document_symbols,                   { desc = 'LSP: [O]pen Document Symbols' })
+        vim.keymap.set('n',          'gW',         builtin.lsp_dynamic_workspace_symbols,          { desc = 'LSP: Open [W]orkspace Symbols' })
+        vim.keymap.set('n',          '<leader>th', function() print("Inlay Hints Not Loaded") end, { desc = 'LSP: [T]oggle Inlay [H]ints' })
     end,
 }

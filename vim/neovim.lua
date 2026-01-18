@@ -28,7 +28,7 @@ if not vim.g.neovide then
 end
 
 vim.cmd([[
-    set noswapfile
+    set swapfile
     set nobackup
     set undofile
     set guicursor+=t:blinkon0
@@ -71,14 +71,12 @@ local opts = {
     },
     ui = {
         icons = vim.g.have_nerd_font and {} or {
-            cmd = '', config = '', event = '', ft = '', init = '', keys = '', plugin = '', runtime = '', require = '', source = '', start = '', task = '', lazy = ''
+            cmd = '', config = '', event = '', ft = '', init = '', keys = '', plugin = '',
+            runtime = '', require = '', source = '', start = '', task = '', lazy = ''
         },
     },
     rocks = {
         enabled = false
-    },
-    install = {
-        colorscheme = { "gruvbox", "habamax" }
     },
 }
 

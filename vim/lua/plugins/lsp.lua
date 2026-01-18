@@ -65,7 +65,7 @@ return {
         config = function()
             vim.api.nvim_create_autocmd('LspAttach', {
                 desc = 'Lsp Actions',
-                group = vim.api.nvim_create_augroup('LSPSTUFF', { clear = true }),
+                group = vim.api.nvim_create_augroup('lsp-stuff', { clear = true }),
                 callback = function(event)
                     local client = vim.lsp.get_client_by_id(event.data.client_id)
                     if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
@@ -73,15 +73,10 @@ return {
                             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
                         end, { desc = '[T]oggle Inlay [H]ints', buffer = event.buf })
                     end
-                end
+                end,
             })
 
-            local lspconfig = require('lspconfig')
-            lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
-                'force',
-                vim.lsp.protocol.make_client_capabilities(),
-                require('cmp_nvim_lsp').default_capabilities()
-            )
+            local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
             require('mason').setup {}
             require('mason-lspconfig').setup {
@@ -90,11 +85,14 @@ return {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
                     function(server_name)
-                        lspconfig[server_name].setup {}
+                        local server = {}
+                        server.capabilities = cmp_capabilities
+                        vim.lsp.enable(server_name)
+                        vim.lsp.config(server_name, server)
                     end,
                 },
-                automatic_installation = false
+                automatic_installation = false,
             }
-        end
+        end,
     },
 }
