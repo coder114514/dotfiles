@@ -28,8 +28,6 @@ if not vim.g.neovide then
 end
 
 vim.cmd([[
-    set swapfile
-    set nobackup
     set undofile
     set guicursor+=t:blinkon0
     " https://github.com/vim-airline/vim-airline/issues/2693
