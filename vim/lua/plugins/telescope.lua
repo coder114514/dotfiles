@@ -1,5 +1,10 @@
 local function config_dir()
-    return vim.fn.fnamemodify(debug.getinfo(2, 'S').source:sub(2), ':p:h:h:h')
+    local path = vim.fn.fnamemodify(debug.getinfo(2, 'S').source:sub(2), ':p:h:h:h')
+    local is_windows = package.config:sub(1, 1) == '\\'
+    if is_windows then
+        path = path:gsub("/", "\\")
+    end
+    return path
 end
 
 return {
@@ -45,7 +50,7 @@ return {
         end, { desc = '[S]earch [N]eovim files' })
 
         vim.keymap.set('n', '<leader>sc', function()
-            builtin.find_files { cwd = config_dir(), file_ignore_patterns = { "^pack/" } }
+            builtin.find_files { cwd = config_dir(), file_ignore_patterns = { "^pack/", "^pack\\"  } }
         end, { desc = '[S]earch [C]onfig files' })
 
         -- Replace some default LSP shortcuts with those of telescope and add better descriptions

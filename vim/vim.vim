@@ -3,6 +3,11 @@ command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
 exec 'set rtp+='. fnameescape(s:scripthome)
 exec 'set packpath+=' . fnameescape(s:scripthome)
 
+function! g:ConfigHome()
+    return s:scripthome
+endfunction
+command! CdConfig execute "cd " . ConfigHome()
+
 if has("gui_running") && !has("nvim")
     set lines=45 columns=160
     set guifont=Sarasa\ Mono\ SC
@@ -92,6 +97,14 @@ set mouse=a
 set guicursor+=a:blinkon0
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
 
+augroup desert-patch
+    autocmd!
+    " only run these highlights when the colorscheme matches 'desert'
+    " a deep, matte green that blends with the warm tones of desert
+    autocmd ColorScheme desert highlight CursorLine cterm=NONE ctermbg=22 guibg=#2f4f2f
+    autocmd ColorScheme desert highlight SpecialKey cterm=NONE guibg=NONE
+    autocmd ColorScheme desert highlight NonText cterm=NONE guibg=NONE
+augroup END
 colorscheme desert
 
 IncScript keymaps.vim
