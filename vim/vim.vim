@@ -17,6 +17,15 @@ if exists("g:neovide")
     let g:neovide_cursor_trail_size = 0
 end
 
+" https://github.com/vim-airline/vim-airline/issues/2693
+function! s:AirlineAfterTheme()
+    hi StatusLine cterm=NONE gui=NONE
+    hi StatusLineNC cterm=NONE gui=NONE
+    hi StatusLineTerm cterm=NONE gui=NONE
+    hi StatusLineTermNC cterm=NONE gui=NONE
+endfunction
+autocmd User AirlineAfterTheme call s:AirlineAfterTheme()
+
 packadd vim-sensible
 let g:airline#extensions#tabline#enabled = 1
 packadd vim-airline
@@ -74,6 +83,10 @@ set shiftwidth=4
 set expandtab
 set cinoptions=l1N-sE-st0Lsg0
 set mouse=a
+set guicursor+=a:blinkon0
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+
+colorscheme desert
 
 IncScript keymaps.vim
 

@@ -27,14 +27,7 @@ if not vim.g.neovide then
     for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
 end
 
-vim.cmd([[
-    set undofile
-    set guicursor+=t:blinkon0
-    " https://github.com/vim-airline/vim-airline/issues/2693
-    hi statusline cterm=NONE gui=NONE
-    hi tabline cterm=NONE gui=NONE
-    hi winbar cterm=NONE gui=NONE
-]])
+vim.opt.undofile = true -- for undo tree
 
 ------------------------------------------------------------------------------
 ---- Bootstrap lazy.nvim
