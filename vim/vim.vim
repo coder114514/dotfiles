@@ -31,6 +31,12 @@ let g:airline#extensions#tabline#enabled = 1
 packadd vim-airline
 packadd vim-terminal-help
 
+packadd vim-textobj-user
+packadd vim-textobj-syntax
+packadd vim-textobj-parameter
+packadd vim-textobj-indent
+packadd vim-textobj-function
+
 helptags ALL
 
 augroup vim-stuff
