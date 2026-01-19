@@ -10,7 +10,7 @@ command! CdConfig execute "cd " . ConfigHome()
 
 if has("gui_running") && !has("nvim")
     set lines=45 columns=160
-    set guifont=Sarasa\ Mono\ SC
+    set guifont=SarasaMonoSC\ Nerd\ Font
     set guioptions-=T
 endif
 
@@ -46,10 +46,6 @@ helptags ALL
 
 augroup vim-stuff
     autocmd!
-    " Restore cusor style on quit.
-    autocmd VimLeave *
-                \ set guicursor= |
-                \ call chansend(v:stderr, "\x1B[ q")
     " Remember last edit position in files.
     autocmd BufReadPost *
                 \ let line = line("'\"") |
@@ -94,7 +90,6 @@ set shiftwidth=4
 set expandtab
 set cinoptions=l1N-sE-st0Lsg0
 set mouse=a
-set guicursor+=a:blinkon0
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
 
 augroup desert-patch
