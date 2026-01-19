@@ -13,7 +13,7 @@ function! g:ConfigHome()
 endfunction
 command! CdConfig execute "cd " . ConfigHome()
 
-if has("gui_running") && !has("nvim")
+if has('gui_running') && !has('nvim')
     set lines=45 columns=160
     set guifont=SarasaMonoSC\ Nerd\ Font
     set guioptions-=T
@@ -67,7 +67,7 @@ augroup vim_stuff
                 \ echohl None
 augroup END
 
-if !has("nvim")
+if !has('nvim')
     let &t_SI = "\e[6 q"
     let &t_SR = "\e[3 q"
     let &t_EI = "\e[2 q"
@@ -83,7 +83,7 @@ set nohidden
 set autoindent
 set nu
 set rnu
-if has("extra_search")
+if has('extra_search')
     set hls
 endif
 set list
@@ -95,7 +95,10 @@ set shiftwidth=4
 set expandtab
 set cinoptions=l1N-sE-st0Lsg0
 set mouse=a
-set guicursor=n-v-c-sm-t:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkon0
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkon0
+if has('nvim')
+    set guicursor+=t:block
+endif
 
 augroup desert_patch
     autocmd!
