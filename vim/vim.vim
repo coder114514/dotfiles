@@ -1,5 +1,10 @@
+let s:is_win = has('win32') || has('win64')
 let s:scripthome = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
+if s:is_win
+    command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."\\<args>")
+else
+    command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
+endif
 exec 'set rtp+='. fnameescape(s:scripthome)
 exec 'set packpath+=' . fnameescape(s:scripthome)
 
@@ -44,7 +49,7 @@ packadd vim-textobj-function
 
 helptags ALL
 
-augroup vim-stuff
+augroup vim_stuff
     autocmd!
     " Remember last edit position in files.
     autocmd BufReadPost *
@@ -62,7 +67,7 @@ augroup vim-stuff
                 \ echohl None
 augroup END
 
-if !has('nvim')
+if !has("nvim")
     let &t_SI = "\e[6 q"
     let &t_SR = "\e[3 q"
     let &t_EI = "\e[2 q"
@@ -90,9 +95,9 @@ set shiftwidth=4
 set expandtab
 set cinoptions=l1N-sE-st0Lsg0
 set mouse=a
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon0
+set guicursor=n-v-c-sm-t:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkon0
 
-augroup desert-patch
+augroup desert_patch
     autocmd!
     " only run these highlights when the colorscheme matches 'desert'
     " a deep, matte green that blends with the warm tones of desert

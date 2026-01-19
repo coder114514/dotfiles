@@ -6,10 +6,12 @@
 
 local scriptpath = debug.getinfo(1, 'S').source:sub(2)
 local scripthome = vim.fn.fnamemodify(scriptpath, ':h')
+local is_windows = package.config:sub(1, 1) == '\\'
+local path_sep = is_windows and '\\' or '/'
 
-package.path = package.path .. ';' .. scripthome .. '/?.lua'
+package.path = package.path .. ';' .. scripthome .. path_sep .. '?.lua'
 
-vim.cmd.source(scripthome .. "/vim.vim")
+vim.cmd.source(scripthome .. path_sep .. 'vim.vim')
 
 if not vim.g.neovide then
     -- https://www.reddit.com/r/neovim/comments/zzs7eq/using_alacritty_but_no_transparency/
@@ -32,8 +34,8 @@ vim.opt.undofile = true -- for undo tree
 ------------------------------------------------------------------------------
 ---- Bootstrap lazy.nvim
 ------------------------------------------------------------------------------
-local lazyroot = vim.g.lazyroot or vim.fn.stdpath "data" .. "/lazy"
-local lazypath = lazyroot .. "/lazy.nvim"
+local lazyroot = vim.g.lazyroot or vim.fn.stdpath "data" .. path_sep .. "lazy"
+local lazypath = lazyroot .. path_sep .. "lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
