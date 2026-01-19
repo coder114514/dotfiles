@@ -107,6 +107,7 @@ augroup desert_patch
     autocmd ColorScheme desert highlight CursorLine cterm=NONE ctermbg=22 guibg=#2f4f2f
     autocmd ColorScheme desert highlight SpecialKey cterm=NONE guibg=NONE
     autocmd ColorScheme desert highlight NonText cterm=NONE guibg=NONE
+    autocmd ColorScheme desert highlight MatchParen ctermbg=236 guibg=#303030
 augroup END
 colorscheme desert
 
