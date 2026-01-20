@@ -1,27 +1,27 @@
 [submodule "vim/pack/plugins/opt/vim-terminal-help"]
-	path = vim/pack/plugins/opt/vim-terminal-help
+	path = vim/pack/plugins/start/vim-terminal-help
 	url = https://github.com/skywind3000/vim-terminal-help.git
-[submodule "vim/pack/plugins/opt/vim-airline"]
-	path = vim/pack/plugins/opt/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
 [submodule "vim/pack/plugins/opt/vim-sensible"]
-	path = vim/pack/plugins/opt/vim-sensible
+	path = vim/pack/plugins/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
 [submodule "vim/pack/plugins/opt/vim-textobj-user"]
-	path = vim/pack/plugins/opt/vim-textobj-user
+	path = vim/pack/plugins/start/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
 [submodule "vim/pack/plugins/opt/vim-textobj-indent"]
-	path = vim/pack/plugins/opt/vim-textobj-indent
+	path = vim/pack/plugins/start/vim-textobj-indent
 	url = https://github.com/kana/vim-textobj-indent.git
 	ignore = untracked
 [submodule "vim/pack/plugins/opt/vim-textobj-syntax"]
-	path = vim/pack/plugins/opt/vim-textobj-syntax
+	path = vim/pack/plugins/start/vim-textobj-syntax
 	url = https://github.com/kana/vim-textobj-syntax.git
 	ignore = untracked
 [submodule "vim/pack/plugins/opt/vim-textobj-parameter"]
-	path = vim/pack/plugins/opt/vim-textobj-parameter
+	path = vim/pack/plugins/start/vim-textobj-parameter
 	url = https://github.com/sgur/vim-textobj-parameter.git
 [submodule "vim/pack/plugins/opt/vim-textobj-function"]
-	path = vim/pack/plugins/opt/vim-textobj-function
+	path = vim/pack/plugins/start/vim-textobj-function
 	url = https://github.com/kana/vim-textobj-function.git
 	ignore = untracked
+[submodule "vim/pack/plugins/start/undotree"]
+	path = vim/pack/plugins/start/undotree
+	url = https://github.com/mbbill/undotree

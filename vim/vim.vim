@@ -36,19 +36,6 @@ function! s:AirlineAfterTheme()
 endfunction
 autocmd User AirlineAfterTheme call s:AirlineAfterTheme()
 
-packadd vim-sensible
-let g:airline#extensions#tabline#enabled = 1
-packadd vim-airline
-packadd vim-terminal-help
-
-packadd vim-textobj-user
-packadd vim-textobj-syntax
-packadd vim-textobj-parameter
-packadd vim-textobj-indent
-packadd vim-textobj-function
-
-helptags ALL
-
 augroup vim_stuff
     autocmd!
     " Remember last edit position in files.
@@ -100,6 +87,28 @@ if has('nvim')
     set guicursor+=t:block
 endif
 
+" vim-terminal-help
+let g:terminal_close = 1
+let g:terminal_list = 0
+let g:terminal_fixheight = 1
+
+if !exists("g:neovide")
+    " https://www.reddit.com/r/neovim/comments/zzs7eq/using_alacritty_but_no_transparency/
+    augroup theme_transparency_patch
+        autocmd!
+        autocmd ColorScheme * highlight Normal      ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight LineNr      ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight Folded      ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight NonText     ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight SpecialKey  ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight VertSplit   ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight SignColumn  ctermbg=NONE guibg=NONE
+        autocmd ColorScheme * highlight EndOfBuffer ctermbg=NONE guibg=NONE
+        " this is specific to how I like my tabline to look like
+        autocmd ColorScheme * highlight TablineFill ctermbg=NONE guibg=NONE
+    augroup END
+endif
+
 augroup desert_patch
     autocmd!
     " only run these highlights when the colorscheme matches 'desert'
@@ -119,3 +128,7 @@ function! g:RemoveTrailingWs()
     call winrestview(saved)
 endfunction
 command! RemoveTrailingWs call RemoveTrailingWs()
+
+if has('nvim')
+    packloadall
+endif

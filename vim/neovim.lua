@@ -13,22 +13,6 @@ package.path = package.path .. ';' .. scripthome .. path_sep .. '?.lua'
 
 vim.cmd.source(scripthome .. path_sep .. 'vim.vim')
 
-if not vim.g.neovide then
-    -- https://www.reddit.com/r/neovim/comments/zzs7eq/using_alacritty_but_no_transparency/
-    local highlights = {
-        'Normal',
-        'LineNr',
-        'Folded',
-        'NonText',
-        'SpecialKey',
-        'VertSplit',
-        'SignColumn',
-        'EndOfBuffer',
-        'TablineFill', -- this is specific to how I like my tabline to look like
-    }
-    for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
-end
-
 vim.opt.undofile = true -- for undo tree
 
 ------------------------------------------------------------------------------
