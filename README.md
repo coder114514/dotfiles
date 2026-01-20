@@ -1,4 +1,4 @@
-# vim-config
+# dotfiles
 
 ### Neovim
 ```lua
@@ -20,5 +20,5 @@ import = [
 
 ### Tmux
 ```tmux
-source-file ~/dev/dotfiles/tmux.conf
+source-file dotfiles/tmux.conf
 ```
