@@ -46,12 +46,6 @@ augroup vim_stuff
                 \    && index(['xxd', 'gitrebase'], &filetype) == -1 |
                 \   execute "normal! g`\"" |
                 \ endif
-    " Quite a few people accidentally type "q:" instead of ":q" and get confused
-    " by the command line window.  Give a hint about how to get out.
-    autocmd CmdwinEnter *
-                \ echohl Todo |
-                \ echo gettext('You discovered the command-line window! You can close it with ":q".') |
-                \ echohl None
 augroup END
 
 if !has('nvim')
@@ -128,6 +122,7 @@ function! g:RemoveTrailingWs()
     call winrestview(saved)
 endfunction
 command! RemoveTrailingWs call RemoveTrailingWs()
+command! Cclear cgetexpr [] | cclose
 
 if has('nvim')
     packloadall

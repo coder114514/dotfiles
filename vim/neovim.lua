@@ -14,6 +14,9 @@ package.path = package.path .. ';' .. scripthome .. path_sep .. '?.lua'
 vim.cmd.source(scripthome .. path_sep .. 'vim.vim')
 
 vim.opt.undofile = true -- for undo tree
+vim.api.nvim_create_user_command('Diags', function()
+    vim.diagnostic.setqflist()
+end, { desc = 'Add all diagnostics to the quickfix list.' })
 
 ------------------------------------------------------------------------------
 ---- Bootstrap lazy.nvim
