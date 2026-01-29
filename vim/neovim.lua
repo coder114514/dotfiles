@@ -89,24 +89,6 @@ local opts = {
 
 local specs = {
     {
-        'kdheepak/lazygit.nvim',
-        cmd = {
-            'LazyGit',
-            'LazyGitConfig',
-            'LazyGitCurrentFile',
-            'LazyGitFilter',
-            'LazyGitFilterCurrentFile',
-        },
-        -- optional for floating window border decoration
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-        },
-        keys = {
-            { '<leader>lg', '<cmd>LazyGit<cr>', desc = '[L]azy[G]it' }
-        },
-    },
-
-    {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,
         dependencies = {
@@ -117,7 +99,7 @@ local specs = {
         end,
         config = function()
             require('nvim-treesitter.install').prefer_git = false
-            -- @diagnostic disable-next-line: missing-fields
+            ---@diagnostic disable
             require('nvim-treesitter.configs').setup {
                 ensure_installed = { 'c', 'cpp', 'lua', 'luadoc', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline' },
                 sync_install = false,
@@ -139,13 +121,14 @@ local specs = {
                         enable = true,
                         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
                         keymaps = {
-                            -- You can use the capture groups defined in textobjects.scm
                             ["af"] = "@function.outer",
                             ["if"] = "@function.inner",
                             ["ac"] = "@class.outer",
                             ["ic"] = "@class.inner",
-                            ["aa"] = "@parameter.outer", -- Select 'Around Argument'
-                            ["ia"] = "@parameter.inner", -- Select 'Inner Argument'
+                            ["aa"] = "@parameter.outer",
+                            ["ia"] = "@parameter.inner",
+                            ["ab"] = "@block.outer",
+                            ["ib"] = "@block.inner",
                         },
                     },
                     swap = {
@@ -179,6 +162,7 @@ local specs = {
                     },
                 },
             }
+            ---@diagnostic enable
         end,
     },
 
