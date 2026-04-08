@@ -1,28 +1,30 @@
+" vim: set sw=2 et :
+
 let s:is_win = has('win32') || has('win64')
 let s:scripthome = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 if s:is_win
-    command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."\\<args>")
+  command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."\\<args>")
 else
-    command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
+  command! -nargs=1 IncScript exec 'so '. fnameescape(s:scripthome."/<args>")
 endif
 exec 'set rtp+='. fnameescape(s:scripthome)
 exec 'set packpath+=' . fnameescape(s:scripthome)
 
 function! g:ConfigHome()
-    return s:scripthome
+  return s:scripthome
 endfunction
 command! CdConfig execute "cd " . ConfigHome()
 
 augroup vim_stuff
-    autocmd!
-    " Remember last edit position in files.
-    autocmd BufReadPost *
-                \ let line = line("'\"") |
-                \ if 1 <= line && line <= line("$")
-                \    && &filetype !~# 'commit'
-                \    && index(['xxd', 'gitrebase'], &filetype) == -1 |
-                \   execute "normal! g`\"" |
-                \ endif
+  autocmd!
+  " Remember last edit position in files.
+  autocmd BufReadPost *
+        \ let line = line("'\"") |
+        \ if 1 <= line && line <= line("$")
+        \    && &filetype !~# 'commit'
+        \    && index(['xxd', 'gitrebase'], &filetype) == -1 |
+        \   execute "normal! g`\"" |
+        \ endif
 augroup END
 
 set belloff=all
@@ -30,7 +32,7 @@ set nohidden
 set autoindent
 set nu rnu
 if has('extra_search')
-    set hls
+  set hls
 endif
 set cursorline
 set ignorecase
@@ -67,25 +69,25 @@ tnoremap <M-N> <C-\><C-n><C-w>p
 tnoremap <M-q> <C-\><C-n>
 
 function! s:OpenTerm(vertical, use_buffer_cwd)
-    let l:original_cwd = getcwd()
-    let l:buf_dir = expand('%:p:h')
-    if a:use_buffer_cwd
-        if isdirectory(l:buf_dir)
-            execute 'cd ' . fnameescape(l:buf_dir)
-        else
-            echoerr "Current buffer is not a file or directory does not exist."
-            return
-        endif
-    endif
-    if a:vertical
-        execute 'bot vert term'
+  let l:original_cwd = getcwd()
+  let l:buf_dir = expand('%:p:h')
+  if a:use_buffer_cwd
+    if isdirectory(l:buf_dir)
+      execute 'cd ' . fnameescape(l:buf_dir)
     else
-        execute 'bot term'
+      echoerr "Current buffer is not a file or directory does not exist."
+      return
     endif
-    if a:use_buffer_cwd
-        execute 'cd ' . fnameescape(l:original_cwd)
-    endif
-    startinsert
+  endif
+  if a:vertical
+    execute 'bot vert term'
+  else
+    execute 'bot term'
+  endif
+  if a:use_buffer_cwd
+    execute 'cd ' . fnameescape(l:original_cwd)
+  endif
+  startinsert
 endfunction
 
 command! Term   call s:OpenTerm(0, 0)
@@ -95,20 +97,20 @@ command! Termbv call s:OpenTerm(1, 1)
 
 " https://www.reddit.com/r/neovim/comments/zzs7eq/using_alacritty_but_no_transparency/
 function! s:FixTransparency()
-    highlight Normal      ctermbg=NONE guibg=NONE
-    highlight LineNr      ctermbg=NONE guibg=NONE
-    highlight Folded      ctermbg=NONE guibg=NONE
-    highlight NonText     ctermbg=NONE guibg=NONE
-    highlight SpecialKey  ctermbg=NONE guibg=NONE
-    highlight VertSplit   ctermbg=NONE guibg=NONE
-    highlight SignColumn  ctermbg=NONE guibg=NONE
-    highlight EndOfBuffer ctermbg=NONE guibg=NONE
-    highlight TablineFill ctermbg=NONE guibg=NONE
+  highlight Normal      ctermbg=NONE guibg=NONE
+  highlight LineNr      ctermbg=NONE guibg=NONE
+  highlight Folded      ctermbg=NONE guibg=NONE
+  highlight NonText     ctermbg=NONE guibg=NONE
+  highlight SpecialKey  ctermbg=NONE guibg=NONE
+  highlight VertSplit   ctermbg=NONE guibg=NONE
+  highlight SignColumn  ctermbg=NONE guibg=NONE
+  highlight EndOfBuffer ctermbg=NONE guibg=NONE
+  highlight TablineFill ctermbg=NONE guibg=NONE
 endfunction
 call s:FixTransparency()
 augroup theme_transparency_patch
-    autocmd!
-    autocmd ColorScheme * call s:FixTransparency()
+  autocmd!
+  autocmd ColorScheme * call s:FixTransparency()
 augroup END
 
 let g:mapleader = " "
@@ -126,9 +128,9 @@ nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 
 function! g:RemoveTrailingWs()
-    let saved = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(saved)
+  let saved = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(saved)
 endfunction
 command! RemoveTrailingWs call g:RemoveTrailingWs()
 command! Cclear cgetexpr [] | cclose
