@@ -74,6 +74,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 local opts = {
   root = lazyroot,
+  install = { colorscheme = { "default" } },
   performance = {
     reset_packpath = false,
     rtp = {
@@ -89,8 +90,6 @@ local opts = {
 }
 
 local specs = {
-  install = { colorscheme = { "default" } },
-
   {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
@@ -178,7 +177,7 @@ local specs = {
         require("nvim-treesitter-textobjects.swap").swap_next "@parameter.inner"
       end)
       vim.keymap.set("n", "<leader>A", function()
-        require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.outer"
+        require("nvim-treesitter-textobjects.swap").swap_previous "@parameter.inner"
       end)
 
       local move_keymaps = {
