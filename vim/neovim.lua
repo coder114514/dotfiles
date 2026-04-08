@@ -90,9 +90,10 @@ local opts = {
 }
 
 local specs = {
+  'neovim/nvim-lspconfig',
+
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
     build = ':TSUpdate',
     branch = 'main',
     config = function()
@@ -210,7 +211,6 @@ local specs = {
 
   {
     'nvim-telescope/telescope.nvim',
-    lazy = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -281,12 +281,6 @@ local specs = {
         { path = 'xmake-luals-addon/library', files = { 'xmake.lua' } },
       },
     },
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    cmd = 'LspInfo',
-    event = { 'BufReadPre', 'BufNewFile' },
   },
 }
 
