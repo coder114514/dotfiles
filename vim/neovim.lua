@@ -170,7 +170,7 @@ local specs = {
       }
       for keys, tobj in pairs(tobj_keymaps) do
         vim.keymap.set({ "x", "o" }, keys, function()
-          require "nvim-treesitter-textobjs.select".select_textobject(tobj, "textobjects")
+          require "nvim-treesitter-textobjects.select".select_textobject(tobj, "textobjects")
         end)
       end
 
