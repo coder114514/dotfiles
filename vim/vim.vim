@@ -45,8 +45,11 @@ set guicursor=a:block-blinkon0
 set list
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 
-set completeopt=menu,menuone,fuzzy,noselect
 set shortmess+=c
+set completeopt=menu,menuone,noselect
+if has('patch-9.1.465') || has('nvim-0.11')
+  set completeopt+=fuzzy
+endif
 
 set <M-H>=H
 set <M-J>=J
