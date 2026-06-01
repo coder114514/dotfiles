@@ -20,7 +20,8 @@ package.path = package.path .. ';' .. scripthome .. path_sep .. '?.lua'
 
 vim.cmd.source(scripthome .. path_sep .. 'vim.vim')
 
-vim.opt.undofile = true -- for undo tree
+-- for undo tree
+vim.opt.undofile = true
 
 vim.api.nvim_create_user_command('Diags', function()
   vim.diagnostic.setqflist()
@@ -153,7 +154,7 @@ local specs = {
     config = function()
       require("nvim-treesitter-textobjects").setup {
         select = {
-          -- Automatically jump forward to textobj, similar to targets.vim
+          -- automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
         },
         move = {
@@ -231,17 +232,17 @@ local specs = {
       vim.keymap.set('n', '<leader>s.',       builtin.oldfiles,    { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers,     { desc = '[ ] Find existing buffers' })
 
-      -- Slightly advanced example of overriding default behavior and theme
+      -- slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+        -- you can pass additional configuration to Telescope to change the theme, layout, etc
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
 
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
+      -- it's also possible to pass additional configuration options
+      --  see `:help telescope.builtin.live_grep()` for information about particular keys
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
@@ -257,7 +258,7 @@ local specs = {
         builtin.find_files { cwd = scripthome, file_ignore_patterns = { '^pack/', '^pack\\'  } }
       end, { desc = '[S]earch [C]onfig files' })
 
-      -- Replace some default LSP shortcuts with those of telescope and add better descriptions
+      -- replace some builtin LSP shortcuts with their telescope equivalents and add better descriptions
       vim.keymap.set('n',          'grn', vim.lsp.buf.rename,                    { desc = 'LSP: Re[n]ame' })
       vim.keymap.set({ 'n', 'x' }, 'gra', vim.lsp.buf.code_action,               { desc = 'LSP: Code [A]ction' })
       vim.keymap.set('n',          'grr', builtin.lsp_references,                { desc = 'LSP: Goto [R]eferences' })
@@ -271,7 +272,7 @@ local specs = {
   },
 
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-  -- used for completion, annotations and signatures of Neovim APIs
+  --   used for completion, annotations and signatures of Neovim APIs, xmake ...
   {
     'folke/lazydev.nvim',
     ft = 'lua',
