@@ -46,13 +46,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 if vim.g.lsps then
+  local servers_to_enable = {}
+
   for _, lsp in pairs(vim.g.lsps) do
     local name, config = lsp[1], lsp[2]
-    vim.lsp.enable(name)
     if config then
       vim.lsp.config(name, config)
     end
+    table.insert(servers_to_enable, name)
   end
+
+  vim.lsp.enable(servers_to_enable)
 end
 
 local lazyroot = vim.g.lazyroot or vim.fn.stdpath 'data' .. path_sep .. 'lazy'
