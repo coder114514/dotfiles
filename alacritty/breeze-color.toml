@@ -1,34 +1,3 @@
-[window]
-dynamic_title = true
-
-[window.dimensions]
-columns = 190
-lines = 45
-
-[font]
-size = 10
-
-[font.bold]
-family = "Sarasa Mono SC"
-style = "Bold"
-
-[font.bold_italic]
-family = "Sarasa Mono SC"
-style = "Bold Italic"
-
-[font.italic]
-family = "Sarasa Mono SC"
-style = "Italic"
-
-[font.normal]
-family = "Sarasa Mono SC"
-style = "Regular"
-
-[keyboard]
-bindings = [
-   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
-]
-
 # Breeze Theme (borrowed from kconsole)
 
 # Default colors
